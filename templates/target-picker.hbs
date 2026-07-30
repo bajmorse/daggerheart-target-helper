@@ -1,0 +1,64 @@
+<section class="totm-target-dialog">
+  <p class="totm-target-dialog__hint">{{hint}}</p>
+
+  <ol class="totm-target-dialog__list">
+    {{#each targets as |target|}}
+      <li class="totm-target-dialog__row">
+        <button
+          type="button"
+          class="totm-target-btn{{#if target.selected}} totm-target-btn--selected{{/if}}"
+          data-dhth="pick"
+          data-token-id="{{target.id}}"
+          {{#if target.disabled}}disabled{{/if}}
+        >
+          <img class="totm-target-btn__portrait" src="{{target.img}}" alt="" />
+          <span class="totm-target-btn__name">{{target.name}}</span>
+          <span class="totm-target-btn__stats">
+            {{#if target.hasDifficulty}}
+              <span class="totm-target-btn__stat totm-target-btn__stat--difficulty">
+                <span class="totm-target-btn__stat-label">{{localize "DHTH.Picker.Difficulty"}}</span>
+                <span class="totm-target-btn__stat-value">{{target.difficulty}}</span>
+              </span>
+            {{/if}}
+            {{#if target.hasEvasion}}
+              <span class="totm-target-btn__stat totm-target-btn__stat--evasion">
+                <span class="totm-target-btn__stat-label">{{localize "DHTH.Picker.Evasion"}}</span>
+                <span class="totm-target-btn__stat-value">{{target.evasion}}</span>
+              </span>
+            {{/if}}
+          </span>
+        </button>
+      </li>
+    {{/each}}
+  </ol>
+
+  <button
+    type="button"
+    class="totm-target-btn totm-target-btn--no-target"
+    data-dhth="no-target"
+  >
+    <span class="totm-target-btn__no-target-icon"><i class="fa-solid fa-ban"></i></span>
+    <span class="totm-target-btn__name">{{localize "DHTH.Picker.NoTarget"}}</span>
+  </button>
+
+  <footer class="totm-target-dialog__footer">
+    {{#if multi}}
+      <span class="totm-target-dialog__count">{{countLabel}}</span>
+    {{/if}}
+    <div class="totm-target-dialog__actions">
+      <button type="button" class="totm-target-dialog__btn" data-dhth="cancel">
+        {{localize "DHTH.Picker.Cancel"}}
+      </button>
+      {{#if multi}}
+        <button
+          type="button"
+          class="totm-target-dialog__btn totm-target-dialog__btn--primary"
+          data-dhth="confirm"
+          {{#unless canConfirm}}disabled{{/unless}}
+        >
+          {{localize "DHTH.Picker.Confirm"}}
+        </button>
+      {{/if}}
+    </div>
+  </footer>
+</section>

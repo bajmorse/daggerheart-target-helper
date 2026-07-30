@@ -1,0 +1,361 @@
+.dhth-target-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dhth-target-panel__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dhth-target-panel__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dhth-target-panel__portrait {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border: none;
+  border-radius: 3px;
+}
+
+.dhth-target-panel__empty {
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Theatre of the Mind target picker                                          */
+/* -------------------------------------------------------------------------- */
+
+.totm-target-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.75rem;
+}
+
+.totm-target-dialog__hint {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.totm-target-dialog__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  /* Keep long adversary lists inside the window rather than growing it. */
+  max-height: 22rem;
+  overflow-y: auto;
+}
+
+.totm-target-dialog__row {
+  margin: 0;
+}
+
+/* Large, click-friendly rows — these get hit fast, mid-combat. */
+.totm-target-btn {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--color-border-light-tertiary, rgb(0 0 0 / 25%));
+  border-radius: 4px;
+  background: var(--color-bg-option, rgb(0 0 0 / 5%));
+  color: inherit;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease,
+    transform 60ms ease;
+}
+
+.totm-target-btn:hover:not(:disabled) {
+  border-color: var(--color-shadow-primary, #ff6400);
+  background: rgb(255 100 0 / 10%);
+}
+
+.totm-target-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.totm-target-btn:focus-visible {
+  outline: 2px solid var(--color-shadow-primary, #ff6400);
+  outline-offset: 2px;
+}
+
+.totm-target-btn--selected {
+  border-color: var(--color-shadow-primary, #ff6400);
+  background: rgb(255 100 0 / 18%);
+  box-shadow: inset 0 0 0 1px var(--color-shadow-primary, #ff6400);
+}
+
+.totm-target-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.totm-target-btn__portrait {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: none;
+  border-radius: 3px;
+  flex: 0 0 auto;
+}
+
+.totm-target-btn__name {
+  font-weight: 600;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.totm-target-btn__stats {
+  display: flex;
+  gap: 0.35rem;
+  flex: 0 0 auto;
+}
+
+.totm-target-btn__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 2.75rem;
+  padding: 0.15rem 0.3rem;
+  border-radius: 3px;
+  background: rgb(0 0 0 / 20%);
+  line-height: 1.1;
+}
+
+.totm-target-btn__stat-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+
+.totm-target-btn__stat-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* The always-present "Attack Without a Target" escape hatch. Set apart from the
+ * target rows so it doesn't read as just another adversary. */
+.totm-target-btn--no-target {
+  grid-template-columns: auto 1fr;
+  min-height: 2.5rem;
+  margin-top: 0.35rem;
+  border-style: dashed;
+  opacity: 0.85;
+}
+
+.totm-target-btn--no-target:hover:not(:disabled) {
+  opacity: 1;
+}
+
+.totm-target-btn__no-target-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  opacity: 0.8;
+}
+
+.totm-target-dialog__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgb(0 0 0 / 15%);
+}
+
+.totm-target-dialog__count {
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.8;
+}
+
+.totm-target-dialog__actions {
+  display: flex;
+  gap: 0.4rem;
+  margin-left: auto;
+}
+
+.totm-target-dialog__btn {
+  min-height: 2rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.totm-target-dialog__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.totm-target-dialog__btn--primary {
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Portrait effects (Ginzzzu's Portraits & NPC Dock)                          */
+/*                                                                            */
+/* Applied transiently to `.ginzzzu-portrait-wrapper[data-actor-id]` and       */
+/* removed on animationend. Nothing here is persisted, so a GM-set emotion is  */
+/* left untouched.                                                            */
+/* -------------------------------------------------------------------------- */
+
+.ginzzzu-portrait-wrapper.dhth-fx-targeted {
+  animation: dhth-targeted 900ms ease-out 2;
+  /* Keep the glow from being clipped by the portrait's own bounds. */
+  overflow: visible;
+}
+
+.ginzzzu-portrait-wrapper.dhth-fx-damage {
+  animation: dhth-damage 650ms ease-out 1;
+}
+
+.ginzzzu-portrait-wrapper.dhth-fx-heal {
+  animation: dhth-heal 900ms ease-out 1;
+}
+
+.ginzzzu-portrait-wrapper.dhth-fx-blocked {
+  animation: dhth-blocked 700ms ease-out 1;
+}
+
+/* Killed target: a persistent greyscale veil that stays until the portrait is
+ * lowered or the target is healed back.
+ *
+ * The portrait <img> carries an inline saturate()/hue-rotate() filter (set in
+ * Ginzzzu's JS) and is promoted to its own GPU layer (will-change/preserve-3d),
+ * so a parent-level grayscale only partially desaturates it. Override the image's
+ * own filter directly — !important beats the inline value, which has none — to
+ * force it fully grey. The image's own `transition: filter` eases the change. */
+.ginzzzu-portrait-wrapper.dhth-dead {
+  filter: brightness(0.85);
+  transition: filter 450ms ease;
+}
+
+.ginzzzu-portrait-wrapper.dhth-dead .ginzzzu-portrait {
+  filter: grayscale(1) brightness(0.72) !important;
+}
+
+/* Being aimed at: a cool pulsing rim that reads as a targeting reticle. */
+@keyframes dhth-targeted {
+  0% {
+    filter: drop-shadow(0 0 0 rgb(120 200 255 / 0%));
+  }
+  40% {
+    filter: drop-shadow(0 0 10px rgb(120 200 255 / 90%))
+      drop-shadow(0 0 22px rgb(60 150 255 / 55%));
+  }
+  100% {
+    filter: drop-shadow(0 0 0 rgb(120 200 255 / 0%));
+  }
+}
+
+/* Took a hit: red bloom with a short recoil shake. */
+@keyframes dhth-damage {
+  0% {
+    filter: none;
+    transform: translateX(0);
+  }
+  15% {
+    filter: drop-shadow(0 0 14px rgb(255 60 60 / 95%)) saturate(1.5) brightness(1.15);
+    transform: translateX(-6px);
+  }
+  35% {
+    transform: translateX(5px);
+  }
+  55% {
+    transform: translateX(-3px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+  100% {
+    filter: none;
+    transform: translateX(0);
+  }
+}
+
+/* Healed: a soft green bloom with a gentle rise. */
+@keyframes dhth-heal {
+  0% {
+    filter: none;
+    transform: translateY(0);
+  }
+  40% {
+    filter: drop-shadow(0 0 16px rgb(90 240 140 / 90%)) brightness(1.12);
+    transform: translateY(-5px);
+  }
+  100% {
+    filter: none;
+    transform: translateY(0);
+  }
+}
+
+/* Blocked/dodged: a steely white-blue rim pulse with a short sideways recoil,
+ * reading as a deflected blow — deliberately unlike the red damage flash. */
+@keyframes dhth-blocked {
+  0% {
+    filter: none;
+    transform: translateX(0);
+  }
+  20% {
+    filter: drop-shadow(0 0 12px rgb(200 225 255 / 95%))
+      drop-shadow(0 0 20px rgb(120 170 255 / 60%)) brightness(1.1);
+    transform: translateX(-5px);
+  }
+  45% {
+    transform: translateX(4px);
+  }
+  70% {
+    transform: translateX(-2px);
+  }
+  100% {
+    filter: none;
+    transform: translateX(0);
+  }
+}
+
+/* Motion-sensitive viewers still get the colour cue, without the movement. */
+@media (prefers-reduced-motion: reduce) {
+  .ginzzzu-portrait-wrapper.dhth-fx-targeted,
+  .ginzzzu-portrait-wrapper.dhth-fx-damage,
+  .ginzzzu-portrait-wrapper.dhth-fx-heal,
+  .ginzzzu-portrait-wrapper.dhth-fx-blocked {
+    animation-name: dhth-fade-cue;
+    animation-duration: 700ms;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes dhth-fade-cue {
+    0%,
+    100% {
+      filter: none;
+    }
+    50% {
+      filter: brightness(1.25);
+    }
+  }
+}

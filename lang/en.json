@@ -1,0 +1,35 @@
+{
+  "DHTH.ModuleTitle": "Eryndor: Target Helper",
+
+  "DHTH.Panel.Title": "Targets",
+  "DHTH.Panel.NoTargets": "No tokens targeted.",
+
+  "DHTH.Picker.Title": "Choose a Target",
+  "DHTH.Picker.Confirm": "Confirm",
+  "DHTH.Picker.Cancel": "Cancel",
+  "DHTH.Picker.Difficulty": "Diff",
+  "DHTH.Picker.Evasion": "Evade",
+  "DHTH.Picker.HintSingle": "No target selected. Choose one to continue.",
+  "DHTH.Picker.HintMulti": "No target selected. Choose your targets, then confirm.",
+  "DHTH.Picker.Selected": "{count} selected",
+  "DHTH.Picker.SelectedCapped": "{count} of {max} selected",
+  "DHTH.Picker.NoTarget": "Attack Without a Target",
+
+  "DHTH.Notify.NoCandidates": "No valid targets available in this scene.",
+  "DHTH.Notify.ReplayFailed": "Targets were set, but the action could not be re-run. Please trigger it again.",
+
+  "DHTH.Settings.Enabled.Name": "Enable Target Helper",
+  "DHTH.Settings.Enabled.Hint": "Prompt for a target when you use a targeted action with nothing targeted.",
+
+  "DHTH.Settings.PortraitIntegration.Name": "Show Target Portraits",
+  "DHTH.Settings.PortraitIntegration.Hint": "When a targeted action is used, raise the target's portrait in Ginzzzu's Portraits & NPC Dock and animate it. Requires that module; ignored otherwise.",
+
+  "DHTH.Settings.PortraitLinger.Name": "Portrait Linger (seconds)",
+  "DHTH.Settings.PortraitLinger.Hint": "How long a target's portrait stays up after the last damage or healing it received. Portraits you raised by hand are never closed.",
+
+  "DHTH.Settings.ClearTargets.Name": "Clear Targets After Action",
+  "DHTH.Settings.ClearTargets.Hint": "Release your targets automatically once a targeted action finishes. Damage and healing still apply to the targets already recorded on the chat card.",
+
+  "DHTH.Settings.MissFeedback.Name": "Miss Feedback",
+  "DHTH.Settings.MissFeedback.Hint": "When an attack hits none of its targets, remove the Roll Damage button from the chat card and flash a block/deflect on the target's portrait. Attacks without a target are unaffected."
+}

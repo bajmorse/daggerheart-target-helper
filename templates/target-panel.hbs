@@ -1,0 +1,16 @@
+<section class="dhth-target-panel">
+  <header class="dhth-target-panel__header">
+    <h3>{{localize "DHTH.Panel.Title"}}</h3>
+  </header>
+
+  <ol class="dhth-target-panel__list">
+    {{#each targets as |target|}}
+      <li class="dhth-target-panel__item" data-token-id="{{target.id}}">
+        <img class="dhth-target-panel__portrait" src="{{target.img}}" alt="{{target.name}}" />
+        <span class="dhth-target-panel__name">{{target.name}}</span>
+      </li>
+    {{else}}
+      <li class="dhth-target-panel__empty">{{localize "DHTH.Panel.NoTargets"}}</li>
+    {{/each}}
+  </ol>
+</section>
